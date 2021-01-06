@@ -14,7 +14,7 @@
 			<id>trifork-nexus</id>
 			<name>Trifork Nexus</name>
 			<layout>default</layout>
-			<url>http://ci.fmk.netic.dk/nexus/content/groups/public/</url>
+			<url>https://ci.fmk.netic.dk/nexus/content/groups/public/</url>
 			<!-- snapshots> <enabled>false</enabled> </snapshots -->
 		</repository>
 	</repositories>
@@ -23,13 +23,13 @@
         <repository>
             <id>trifork.releases</id>
             <name>Trifork Releases</name>
-            <url>http://ci.fmk.netic.dk/nexus/content/repositories/releases/</url>
+            <url>https://ci.fmk.netic.dk/nexus/content/repositories/releases/</url>
             <layout>default</layout>
         </repository>
         <snapshotRepository>
             <id>trifork.snapshots</id>
             <name>Trifork Snapshots</name>
-            <url>http://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
+            <url>https://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
             <layout>default</layout>
         </snapshotRepository>
     </distributionManagement>
