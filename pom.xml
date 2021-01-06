@@ -1,69 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.trifork.impromptu</groupId>
-  <artifactId>impromptu-request-forwarder-parent</artifactId>
-  <version>1.0.0</version>
-  <packaging>pom</packaging>
-  <name>impromptu</name>
-  <modules>
-    <module>impromptu-request-forwarder</module>
-    <module>impromptu-request-forwarder-jersey-connector</module>
-  </modules>
-  <distributionManagement>
-    <repository>
-      <id>trifork.releases</id>
-      <name>Trifork Releases</name>
-      <url>https://ci.fmk.netic.dk/nexus/content/repositories/releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>trifork.snapshots</id>
-      <name>Trifork Snapshots</name>
-      <url>https://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>3.0.1</version>
-        <scope>provided</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <repositories>
-    <repository>
-      <id>trifork-nexus</id>
-      <name>Trifork Nexus</name>
-      <url>https://ci.fmk.netic.dk/nexus/content/groups/public/</url>
-    </repository>
-  </repositories>
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.0</version>
-          <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>com.github.danielflower.mavenplugins</groupId>
-        <artifactId>multi-module-maven-release-plugin</artifactId>
-        <version>3.2.4</version>
-        <configuration>
-          <releaseGoals>
-            <releaseGoal>deploy</releaseGoal>
-          </releaseGoals>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.trifork.impromptu</groupId>
+	<artifactId>impromptu-request-forwarder-parent</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>impromptu</name>
+
+	<repositories>
+		<repository>
+			<id>trifork-nexus</id>
+			<name>Trifork Nexus</name>
+			<layout>default</layout>
+			<url>http://ci.fmk.netic.dk/nexus/content/groups/public/</url>
+			<!-- snapshots> <enabled>false</enabled> </snapshots -->
+		</repository>
+	</repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>trifork.releases</id>
+            <name>Trifork Releases</name>
+            <url>http://ci.fmk.netic.dk/nexus/content/repositories/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <id>trifork.snapshots</id>
+            <name>Trifork Snapshots</name>
+            <url>http://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>com.github.danielflower.mavenplugins</groupId>
+				<artifactId>multi-module-maven-release-plugin</artifactId>
+				<version>3.2.4</version>
+				<configuration>
+					<releaseGoals>
+						<releaseGoal>deploy</releaseGoal>
+					</releaseGoals>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>impromptu-request-forwarder</module>
+		<module>impromptu-request-forwarder-jersey-connector</module>
+	</modules>
 </project>
