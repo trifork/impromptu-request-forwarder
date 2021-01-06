@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.trifork.impromptu</groupId>
-			<artifactId>impromptu-forwarder</artifactId>
+			<artifactId>impromptu-request-forwarder</artifactId>
 			<version>${project.version}</version>
 		</dependency>
         <dependency>
