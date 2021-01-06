@@ -19,9 +19,9 @@ import org.glassfish.jersey.client.ClientResponse;
 import org.glassfish.jersey.client.spi.AsyncConnectorCallback;
 import org.glassfish.jersey.client.spi.Connector;
 import org.glassfish.jersey.message.internal.Statuses;
-import org.imprompu.forwarder.HeaderValueResolver;
-import org.imprompu.forwarder.InternalDelegator;
-import org.imprompu.forwarder.InvocationResult;
+import com.trifork.impromptu.HeaderValueResolver;
+import com.trifork.impromptu.InternalDelegator;
+import com.trifork.impromptu.InvocationResult;
 
 public class ForwardingClientConnector implements Connector {
 
