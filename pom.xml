@@ -9,6 +9,18 @@
 	<packaging>pom</packaging>
 	<name>impromptu</name>
 
+    <repositories>
+        <repository>
+            <id>trifork-nexus</id>
+            <name>Trifork Nexus</name>
+            <layout>default</layout>
+            <url>http://ci.fmk.netic.dk/nexus/content/groups/public/</url>
+            <!-- snapshots>
+                <enabled>false</enabled>
+            </snapshots-->
+        </repository>
+    </repositories>
+
 	<build>
 		<pluginManagement>
 			<plugins>
