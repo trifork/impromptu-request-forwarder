@@ -526,11 +526,11 @@ public class ImpromptuRequest {
                     o = new ServletOutputStream() {
 
                         public void write(int b) throws IOException {
-                            o.write(b);
+                            baos.write(b);
                         }
 
                         public void write(byte[] b, int off, int len) throws IOException {
-                            o.write(b, off, len);
+                            baos.write(b, off, len);
                         }
                     };
                 }
@@ -546,7 +546,7 @@ public class ImpromptuRequest {
                 }
 
                 if (w == null) {
-                    w = new PrintWriter(new OutputStreamWriter(o, charset));
+                    w = new PrintWriter(new OutputStreamWriter(baos, charset));
                 }
 
                 return w;
