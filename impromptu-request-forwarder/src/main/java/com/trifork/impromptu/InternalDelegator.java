@@ -73,7 +73,7 @@ public class InternalDelegator {
         String pathInfo = subPath.substring(servletPath.length());
 
         String queryString = null;
-        int q = subPath.indexOf("?");
+        int q = pathInfo.indexOf("?");
 
         if (q >= 0) {
             queryString = pathInfo.substring(q + 1);

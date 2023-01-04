@@ -65,7 +65,12 @@ public class ForwardingClientConnector implements Connector {
         
         InvocationResult invocationResult;
         try {
-            invocationResult = delegator.doRequest(clientRequest.getUri().getPath(), is, clientRequest.getMethod(), headerValueResolver);
+            String query = clientRequest.getUri().getQuery();
+            String pathAndQuery = clientRequest.getUri().getPath();
+            if (query != null && query.length() > 0) {
+                pathAndQuery += "?" + query;
+            }
+            invocationResult = delegator.doRequest(pathAndQuery, is, clientRequest.getMethod(), headerValueResolver);
         } catch (ServletException | IOException e) {
             throw new ProcessingException("Failure forwarding request", e);
         }
