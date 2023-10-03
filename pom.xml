@@ -10,30 +10,49 @@
 	<packaging>pom</packaging>
 	<name>impromptu</name>
 
-	<repositories>
-		<repository>
-			<id>trifork-nexus</id>
-			<name>Trifork Nexus</name>
-			<layout>default</layout>
-			<url>https://ci.fmk.netic.dk/nexus/content/groups/public/</url>
-			<!-- snapshots> <enabled>false</enabled> </snapshots -->
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>trifork-public</id>
+            <name>Trifork public Nexus</name>
+            <url>https://ci.fmk.netic.dk/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>trifork.snapshots</id>
+            <name>Trifork internal snapshot Nexus</name>
+            <url>https://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <updatePolicy>never</updatePolicy>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
-	<distributionManagement>
-		<repository>
-			<id>trifork.releases</id>
-			<name>Trifork Releases</name>
-			<url>https://ci.fmk.netic.dk/nexus/content/repositories/releases/</url>
-			<layout>default</layout>
-		</repository>
-		<snapshotRepository>
-			<id>trifork.snapshots</id>
-			<name>Trifork Snapshots</name>
-			<url>https://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
-			<layout>default</layout>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>trifork.snapshots</id>
+            <name>Trifork internal snapshot Nexus</name>
+            <url>https://ci.fmk.netic.dk/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>trifork.releases</id>
+            <name>Trifork internal releases Nexus</name>
+            <url>https://ci.fmk.netic.dk/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:trifork/fmk-online2.git</connection>
+        <url>scm:git:git@github.com:trifork/fmk-online2.git</url>
+        <developerConnection>scm:git:git@github.com:trifork/fmk-online2.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
 	<build>
 		<pluginManagement>
