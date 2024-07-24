@@ -2,7 +2,7 @@ package com.trifork.impromptu;
 
 import java.io.InputStream;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class InvocationResult {
 

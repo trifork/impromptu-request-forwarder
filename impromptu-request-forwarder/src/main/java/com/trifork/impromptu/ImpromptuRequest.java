@@ -18,20 +18,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.AsyncContext;
-import javax.servlet.DispatcherType;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpUpgradeHandler;
+import jakarta.servlet.http.Part;
 
 //import org.apache.log4j.Logger;
 
@@ -158,6 +161,21 @@ public class ImpromptuRequest {
                         public int read(byte b[], int off, int len) throws IOException {
                             return body.read(b, off, len);
                         }
+
+                        @Override
+                        public boolean isFinished() {
+                            throw new UnsupportedOperationException("Unimplemented method 'isFinished'");
+                        }
+
+                        @Override
+                        public boolean isReady() {
+                            throw new UnsupportedOperationException("Unimplemented method 'isReady'");
+                        }
+
+                        @Override
+                        public void setReadListener(ReadListener readListener) {
+                            throw new UnsupportedOperationException("Unimplemented method 'setReadListener'");
+                        }
                     };
                 }
                 
@@ -189,43 +207,36 @@ public class ImpromptuRequest {
 
             @Override
             public int getContentLength() {
-                // TODO Auto-generated method stub
                 return 0;
             }
 
             @Override
             public String getContentType() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getParameter(String name) {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Enumeration<String> getParameterNames() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String[] getParameterValues(String name) {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Map<String, String[]> getParameterMap() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getProtocol() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
@@ -241,67 +252,56 @@ public class ImpromptuRequest {
 
             @Override
             public int getServerPort() {
-                // TODO Auto-generated method stub
                 return 0;
             }
 
             @Override
             public String getRemoteAddr() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getRemoteHost() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Locale getLocale() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Enumeration<Locale> getLocales() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public boolean isSecure() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public RequestDispatcher getRequestDispatcher(String path) {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getRealPath(String path) {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public int getRemotePort() {
-                // TODO Auto-generated method stub
                 return 0;
             }
 
             @Override
             public String getLocalName() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getLocalAddr() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
@@ -312,74 +312,62 @@ public class ImpromptuRequest {
 
             @Override
             public ServletContext getServletContext() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public AsyncContext startAsync() throws IllegalStateException {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse)
                     throws IllegalStateException {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public boolean isAsyncStarted() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public boolean isAsyncSupported() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public AsyncContext getAsyncContext() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public DispatcherType getDispatcherType() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getAuthType() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Cookie[] getCookies() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public long getDateHeader(String name) {
-                // TODO Auto-generated method stub
                 return 0;
             }
 
             @Override
             public int getIntHeader(String name) {
-                // TODO Auto-generated method stub
                 return 0;
             }
 
             @Override
             public String getPathTranslated() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
@@ -390,92 +378,92 @@ public class ImpromptuRequest {
 
             @Override
             public String getRemoteUser() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public boolean isUserInRole(String role) {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public Principal getUserPrincipal() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getRequestedSessionId() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public HttpSession getSession(boolean create) {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public HttpSession getSession() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public boolean isRequestedSessionIdValid() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public boolean isRequestedSessionIdFromCookie() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public boolean isRequestedSessionIdFromURL() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public boolean isRequestedSessionIdFromUrl() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public boolean authenticate(HttpServletResponse response) throws IOException, ServletException {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             @Override
             public void login(String username, String password) throws ServletException {
-                // TODO Auto-generated method stub
 
             }
 
             @Override
             public void logout() throws ServletException {
-                // TODO Auto-generated method stub
 
             }
 
             @Override
             public Collection<Part> getParts() throws IOException, ServletException {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Part getPart(String name) throws IOException, ServletException {
-                // TODO Auto-generated method stub
                 return null;
+            }
+
+            @Override
+            public long getContentLengthLong() {
+                throw new UnsupportedOperationException("Unimplemented method 'getContentLengthLong'");
+            }
+
+            @Override
+            public String changeSessionId() {
+                throw new UnsupportedOperationException("Unimplemented method 'changeSessionId'");
+            }
+
+            @Override
+            public <T extends HttpUpgradeHandler> T upgrade(Class<T> handlerClass) throws IOException, ServletException {
+                throw new UnsupportedOperationException("Unimplemented method 'upgrade'");
             }
         };
         return requestWrapper;
@@ -531,6 +519,16 @@ public class ImpromptuRequest {
 
                         public void write(byte[] b, int off, int len) throws IOException {
                             baos.write(b, off, len);
+                        }
+
+                        @Override
+                        public boolean isReady() {
+                            throw new UnsupportedOperationException("Unimplemented method 'isReady'");
+                        }
+
+                        @Override
+                        public void setWriteListener(WriteListener writeListener) {
+                            throw new UnsupportedOperationException("Unimplemented method 'setWriteListener'");
                         }
                     };
                 }
@@ -747,6 +745,11 @@ public class ImpromptuRequest {
             @Override
             public int getStatus() {
                 return statusCode;
+            }
+
+            @Override
+            public void setContentLengthLong(long len) {
+                throw new UnsupportedOperationException("Unimplemented method 'setContentLengthLong'");
             }
 
         };
